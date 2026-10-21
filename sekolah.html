@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Sekolah | Baim</title>
+
+    <!-- Menggunakan CSS utama website -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Halaman Riwayat Sekolah Saya */
+        .school-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .school-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .school-header .subtitle {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .school-header h1 {
+            font-size: clamp(32px, 6vw, 55px);
+            margin-bottom: 15px;
+        }
+
+        .school-header p {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .school-timeline {
+            position: relative;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .school-timeline::before {
+            content: "";
+            position: absolute;
+            left: 29px;
+            top: 15px;
+            bottom: 15px;
+            width: 2px;
+            background: linear-gradient(
+                to bottom,
+                #c9a7eb,
+                #8ca8e8,
+                #8ed8c5
+            );
+        }
+
+        .school-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 35px;
+            animation: schoolFadeIn 0.8s ease both;
+        }
+
+        .school-item:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .school-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .school-number {
+            position: absolute;
+            left: 0;
+            top: 22px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 25px;
+            background: #17171f;
+            border: 2px solid #c9a7eb;
+            z-index: 1;
+        }
+
+        .school-item:nth-child(2) .school-number {
+            border-color: #8ca8e8;
+        }
+
+        .school-item:nth-child(3) .school-number {
+            border-color: #8ed8c5;
+        }
+
+        .school-card {
+            padding: 28px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .school-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 167, 235, 0.7);
+        }
+
+        .school-level {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+
+        .school-card h2 {
+            font-size: clamp(20px, 3vw, 26px);
+            line-height: 1.5;
+            margin: 0 0 12px;
+        }
+
+        .school-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.75;
+            margin: 0;
+        }
+
+        .school-status {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .school-footer {
+            text-align: center;
+            margin-top: 55px;
+        }
+
+        .school-back {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 30px;
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .school-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        @keyframes schoolFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .school-page {
+                padding: 40px 16px;
+            }
+
+            .school-item {
+                padding-left: 58px;
+                margin-bottom: 25px;
+            }
+
+            .school-timeline::before {
+                left: 19px;
+            }
+
+            .school-number {
+                width: 40px;
+                height: 40px;
+                top: 24px;
+                font-size: 19px;
+            }
+
+            .school-card {
+                padding: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .school-item {
+                animation: none;
+            }
+
+            .school-card,
+            .school-back {
+                transition: none;
+            }
+        }
+		/* Memperbaiki posisi navigasi halaman sekolah */
+nav {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+    </style>
+</head>
+
+<body>
+<nav>
+    <a href="index.html" class="logo">BiodataSaya.</a>
+    <ul>
+        <li><a href="index.html" class="active">Beranda</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+		<li><a href="sekolah.html">Riwayat Sekolah</a></li>
+        <li><a href="hobi.html">Hobi</a></li>
+        <li><a href="cita-cita.html">Cita-cita</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
+
+    <main class="school-page">
+
+        <header class="school-header">
+            <span class="subtitle">MY EDUCATION</span>
+
+            <h1>Riwayat Sekolah</h1>
+
+            <p>
+                Perjalanan pendidikanku dari sekolah dasar
+                hingga saat ini. Setiap langkah adalah bagian
+                dari proses belajar dan meraih cita-cita.
+            </p>
+        </header>
+
+        <section class="school-timeline">
+
+            <!-- Sekolah Dasar -->
+            <article class="school-item">
+                <div class="school-number">🎒</div>
+
+                <div class="school-card">
+                    <span class="school-level">01 — SEKOLAH DASAR</span>
+
+                    <h2>SDN 094155 R. Merah</h2>
+
+                    <p>
+                        Tempatku memulai perjalanan pendidikan,
+                        belajar berbagai pengetahuan dasar,
+                        dan membangun fondasi untuk masa depan.
+                    </p>
+
+                    <span class="school-status">
+                        ✓ Telah ditempuh
+                    </span>
+                </div>
+            </article>
+
+            <!-- Sekolah Menengah Pertama -->
+            <article class="school-item">
+                <div class="school-number">📚</div>
+
+                <div class="school-card">
+                    <span class="school-level">
+                        02 — SEKOLAH MENENGAH PERTAMA
+                    </span>
+
+                    <h2>SMP Muhammadiyah 19 P. Siantar</h2>
+
+                    <p>
+                        Masa untuk mengembangkan pengetahuan,
+                        memperluas pengalaman, dan belajar
+                        menjadi pribadi yang lebih mandiri.
+                    </p>
+
+                    <span class="school-status">
+                        ✓ Telah ditempuh
+                    </span>
+                </div>
+            </article>
+
+            <!-- Sekolah Menengah Kejuruan -->
+            <article class="school-item">
+                <div class="school-number">🎓</div>
+
+                <div class="school-card">
+                    <span class="school-level">
+                        03 — SEKOLAH MENENGAH KEJURUAN
+                    </span>
+
+                    <h2>SMK Swasta Teladan P. Siantar</h2>
+
+                    <p>
+                        Tempatku melanjutkan pendidikan,
+                        mengembangkan keterampilan, dan
+                        mempersiapkan diri untuk masa depan.
+                    </p>
+
+                    <span class="school-status">
+                        ✨ Pendidikan saat ini
+                    </span>
+                </div>
+            </article>
+
+        </section>
+
+        <footer class="school-footer">
+            <a href="index.html" class="school-back">
+                ← Kembali ke Halaman Utama
+            </a>
+        </footer>
+
+    </main>
+
+</body>
+</html>
+```
